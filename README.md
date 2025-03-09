@@ -8,7 +8,7 @@ AI駆動開発フレームワークは、要件定義、設計、コーディン
 
 ## ディレクトリ構造
 
-\`\`\`
+```
 ai-driven-development/
 ├── .github/                         # GitHub Actions設定
 ├── ai-framework/                    # AI駆動開発フレームワーク（メタプロジェクト）
@@ -61,7 +61,7 @@ ai-driven-development/
 ├── scripts/                         # ユーティリティスクリプト
 ├── package.json                     # 依存関係
 └── README.md                        # プロジェクト概要
-\`\`\`
+```
 
 ## 始め方
 
