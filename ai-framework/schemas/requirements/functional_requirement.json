@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Functional Requirement",
+  "type": "object",
+  "required": ["id", "title", "description", "priority"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^FR-[0-9]{3}$",
+      "description": "要件ID"
+    },
+    "title": {
+      "type": "string",
+      "description": "要件タイトル"
+    },
+    "description": {
+      "type": "string",
+      "description": "詳細説明"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "優先度"
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "受け入れ基準"
+    },
+    "source": {
+      "type": "string",
+      "description": "要件の出典（議事録や資料の参照）"
+    }
+  }
+}

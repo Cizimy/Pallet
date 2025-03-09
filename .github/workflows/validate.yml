@@ -1,0 +1,28 @@
+name: Validate Schemas and Requirements
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Validate schemas
+        run: node scripts/validate-schemas.js
+        
+      - name: Validate requirements
+        run: node scripts/validate-requirements.js
