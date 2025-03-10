@@ -2,7 +2,7 @@
 
 標準インターフェース仕様書は、システムコンポーネント間の通信方法や外部システムとの連携方法を定義するドキュメントです。AI駆動開発においては、これらのインターフェース定義を構造化された形式（主にJSON）で管理し、一貫性と再利用性を高めます。
 
-##### JSON形式の標準インターフェース仕様書テンプレート
+##### 2.3.2.1 JSON形式の標準インターフェース仕様書テンプレート
 
 ```json
 {
@@ -20,8 +20,13 @@
       {
         "document_id": "ARCH-001",
         "relationship": "implements"
+      },
+      {
+        "document_id": "SEC-001",
+        "relationship": "references"
       }
-    ]
+    ],
+    "confidentiality": "internal_only"
   },
   "document_history": [
     {
@@ -417,7 +422,7 @@
 }
 ```
 
-##### OpenAPI/Swagger形式でのAPI定義例
+##### 2.3.2.2 OpenAPI/Swagger形式でのAPI定義例
 
 RESTful APIを定義する場合、業界標準のOpenAPI（Swagger）仕様を活用することで、ドキュメント、モックサーバー、クライアントコード生成などの自動化が可能になります。以下はOpenAPI 3.0形式でのAPI定義例です。
 
@@ -722,7 +727,7 @@ components:
       bearerFormat: JWT
 ```
 
-##### gRPC/Protocol Buffersによるインターフェース定義例
+##### 2.3.2.3 gRPC/Protocol Buffersによるインターフェース定義例
 
 マイクロサービス間の高性能な通信には、gRPCとProtocol Buffersが適しています。Protocol Buffersはインターフェースを定義するIDL（Interface Definition Language）で、これを元にクライアントとサーバーのコードを自動生成できます。
 
@@ -864,7 +869,7 @@ message DeleteCustomerRequest {
 }
 ```
 
-##### イベント駆動型インターフェースの定義例
+##### 2.3.2.4 イベント駆動型インターフェースの定義例
 
 非同期通信を行うイベント駆動アーキテクチャでは、イベントのスキーマや契約を明確に定義することが重要です。以下はJSONスキーマを用いたイベント定義の例です。
 
@@ -942,7 +947,7 @@ message DeleteCustomerRequest {
 }
 ```
 
-##### AIを活用したインターフェース設計と検証
+##### 2.3.2.5 AIを活用したインターフェース設計と検証
 
 AIは、インターフェース設計の生成、検証、整合性チェックなど様々な場面で活用できます。以下に実践的なプロンプト例を示します。
 
@@ -1043,7 +1048,7 @@ Proto定義ファイル：protos/inventory_service.proto
 出力はYAML形式のOpenAPI 3.0仕様でお願いします。
 ```
 
-##### インターフェース設計のポイントと実践ノウハウ
+##### 2.3.2.6 インターフェース設計のポイントと実践ノウハウ
 
 1. **一貫性の確保**
    - 命名規則（URL、パラメータ、プロパティ名）の統一
@@ -1091,7 +1096,7 @@ Proto定義ファイル：protos/inventory_service.proto
    - コンシューマー互換性を考慮したスキーマ進化ルール
    - デッドレターキュー（DLQ）などの例外処理パターン導入
 
-##### Cursorを使った標準インターフェース仕様書管理の実践例
+##### 2.3.2.7 Cursorを使った標準インターフェース仕様書管理の実践例
 
 ```markdown
 # Cursorの実践テクニック
@@ -1188,7 +1193,7 @@ RESTful APIの設計を行います。
 ```
 ```
 
-##### ClineによるAPIモック生成と利用例
+##### 2.3.2.8 ClineによるAPIモック生成と利用例
 
 ```bash
 # Clineによるモックサーバー自動生成と起動例
@@ -1212,7 +1217,7 @@ GET /customers エンドポイントと POST /customers エンドポイントの
 認証は 'Authorization: Bearer {token}' 形式の模擬トークンを使用して実装してください。"
 ```
 
-##### WindsurfによるAPI実装とSDK自動生成
+##### 2.3.2.9 WindsurfによるAPI実装とSDK自動生成
 
 ```markdown
 # Windsurfでの実装指示例
